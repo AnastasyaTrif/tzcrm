@@ -1,16 +1,15 @@
 import React, { memo } from 'react';
-import { AppBar, Toolbar, Box, Link, Button, Container } from '@mui/material'; // Используем компоненты
-import { ReactComponent as Logo } from './assets/logo.svg'; // Импортируем логотип
+import { AppBar, Toolbar, Box, Link, Button, Container } from '@mui/material'; //компоненты
+import { ReactComponent as Logo } from './assets/logo.svg';
 import { ReactComponent as ProfileIcon } from './assets/profile.svg';
 import { ReactComponent as NotificationIcon } from './assets/notification.svg';
 
-// Получение текущей даты в нужном формате
 const getFormattedDate = () => {
     const options = { weekday: 'long', month: 'long', day: 'numeric' };
     return new Date().toLocaleDateString('en-US', options);
 };
 
-// Стили
+// стили
 const commonTextStyle = {
     fontFamily: 'Inter, sans-serif',
     color: '#151E2D',
@@ -52,7 +51,6 @@ const Menu = memo(() => (
     </Box>
 ));
 
-// Кнопка crm
 const CrmButton = memo(() => (
     <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: '38px' }}>
         <Button
@@ -85,25 +83,16 @@ const CrmButton = memo(() => (
 ));
 
 // Основной компонент приложения
-// Основной компонент приложения
 function App() {
     return (
         <Box sx={{ backgroundColor: '#F4F4F4', minHeight: '100vh', paddingTop: '64px', fontFamily: 'Inter, sans-serif' }}>
-            {/* Навигационная панель */}
             <AppBar position="fixed" sx={{ backgroundColor: '#FFFFFF', boxShadow: 'none' }}>
                 <Toolbar>
-                    {/* Логотип */}
                     <Box sx={{ position: 'relative', left: '250px', display: 'flex', alignItems: 'center' }}>
                         <Logo style={{ height: '40px' }} />
                     </Box>
-
-                    {/* Меню */}
                     <Menu />
-
-                    {/* Кнопка crm */}
                     <CrmButton />
-
-                    {/* Профиль и иконки */}
                     <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: '60px' }}>
                         <div style={{ display: 'flex', gap: '8px' }}>
                             <ProfileIcon />
@@ -113,53 +102,47 @@ function App() {
                 </Toolbar>
             </AppBar>
 
-            {/* Основной контент */}
             <Container>
                 <Box
                     sx={{
                         padding: '16px',
                         position: 'relative',
-                        left: '50px', // Совпадает с отступом логотипа
-                        marginTop: '25px', // Увеличен отступ после AppBar
+                        left: '1px',
+                        marginTop: '25px', //ot navbar
                     }}
                 >
-                    {/* Отображение даты */}
+
                     <Box
                         sx={{
-                            fontSize: '14px', // Сделано чуть толще
+                            fontSize: '14px',
                             color: '#545C6E',
-                            fontWeight: 545, // Увеличен вес шрифта
-                            marginBottom: '1px', // Увеличен отступ перед Hello Andrew
+                            fontWeight: 545,
+                            marginBottom: '1px',
                         }}
                     >
                         {getFormattedDate()}
                     </Box>
 
-                    {/* Текст Hello Andrew */}
                     <Box sx={{ fontSize: '32px', color: '#151E2D', fontWeight: 'bold' }}>
                         Hello Andrew
                     </Box>
 
-                    {/* Контейнер с размером 1160x418 и фоном #FCFCFC */}
                     <Box
                         sx={{
                             width: '1160px',
                             height: '418px',
                             backgroundColor: '#FCFCFC',
-                            borderRadius: '8px', // Радиус углов (если нужно)
-                            boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)', // Тень (если нужно)
+                            borderRadius: '8px', // Радиус углов
+                            boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)', // Тень
                             padding: '16px', // Внутренние отступы
                             display: 'flex', // Для расположения элементов
                             flexDirection: 'row', // Горизонтальное расположение элементов
-                            alignItems: 'flex-start', // Поднимите элементы наверх
+                            alignItems: 'flex-start', // элементы наверх
                             gap: '12px', // Отступы между элементами
-                            marginTop: '16px', // Отступ сверху, чтобы контейнер был ровно под надписью
+                            marginTop: '16px',
                         }}
                     >
-                        {/* Иконка профиля с размером 36x36 */}
                         <ProfileIcon style={{ width: '36px', height: '36px' }} />
-
-                        {/* Текст My Task */}
                         <Box sx={{ fontSize: '20px', color: '#151E2D', fontWeight: '550', fontFamily: 'Inter, sans-serif', display: 'flex', alignItems: 'flex-start', marginTop: '5px' }}>
                             My Task
                         </Box>
